@@ -463,18 +463,6 @@ export const riskTechGrcReport = (
   userinput,
   reportView
 ) => {
-  console.log(
-    sapSystem.selectedValue,
-    client.selectedValue,
-    level.selectedValue,
-    riskType.selectedValue,
-    riskLevel.selectedValue,
-    businessModule.selectedValue,
-    riskId,
-    "lakshmaman",
-    reportView.selectedValue,
-    "dispatch"
-  );
   return (dispatch) => {
     dispatch({ type: actionType.CHANGE_LOADER_STATUS, data: true });
     axios
@@ -488,18 +476,9 @@ export const riskTechGrcReport = (
           riskLevel: riskLevel.selectedValue,
 
           businessModule: businessModule.selectedValue,
-          riskId: [],
+          riskId: riskId.selectedValue,
           userInput: "",
-          reportView: reportView.selectedValue,
-          // sapSystem: "PRD",
-          // client: "300",
-          // level: 1,
-          // riskType: ["S"],
-          // riskLevel: [],
-          // businessModule: [],
-          // riskId: ["003002"],
-          // userInput: "",
-          // reportView: "1",
+          reportView: 2, // Technical View
         },
         { headers: { Authorisation: token } }
       )
