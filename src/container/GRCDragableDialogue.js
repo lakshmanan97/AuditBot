@@ -100,7 +100,7 @@ class GRCDragableDialogue extends Component {
       this.props.riskType,
       this.props.riskLevel,
       this.props.businessModule,
-      this.props.riskId,
+      this.props.riskid,
       this.props.userinput,
       this.props.reportType
     );
