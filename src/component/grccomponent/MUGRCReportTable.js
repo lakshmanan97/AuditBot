@@ -181,7 +181,7 @@ const MUGRCReportTable = (props) => {
         cellMeta.dataIndex
     );
     let datapoint = props.data[cellMeta.dataIndex];
-    // console.log(datapoint, "=================selectedData");
+    console.log(datapoint, "=================selectedData");
     // console.log(JSON.stringify(datapoint) + datapoint.ZREC);
     props.openDialogue("chart", datapoint);
   };

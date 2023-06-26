@@ -101,7 +101,9 @@ class GRCDragableDialogue extends Component {
       this.props.selectedData.ZRISK_TYPE,
       this.props.selectedData.ZRISK_LEVEL,
       this.props.selectedData.ZAUDIT_ID,
-      this.props.selectedData.BNAME
+      this.props.level.selectedValue === 1
+        ? this.props.selectedData.BNAME
+        : this.props.selectedData.AGR_NAME
     );
   }
 
