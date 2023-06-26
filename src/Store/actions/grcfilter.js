@@ -458,10 +458,8 @@ export const riskTechGrcReport = (
   level,
   riskType,
   riskLevel,
-  businessModule,
   riskId,
-  userinput,
-  reportView
+  userinput
 ) => {
   return (dispatch) => {
     dispatch({ type: actionType.CHANGE_LOADER_STATUS, data: true });
@@ -469,15 +467,14 @@ export const riskTechGrcReport = (
       .post(
         "/api/JAVA_MUL_0004",
         {
-          sapSystem: sapSystem.selectedValue,
-          client: client.selectedValue,
+          sapSystem: sapSystem,
+          client: client,
           level: level.selectedValue,
-          riskType: riskType.selectedValue,
-          riskLevel: riskLevel.selectedValue,
-
-          businessModule: businessModule.selectedValue,
-          riskId: riskId.selectedValue,
-          userInput: "",
+          riskType: [riskType],
+          riskLevel: [riskLevel],
+          riskId: [riskId],
+          businessModule: [],
+          userInput: userinput,
           reportView: 2, // Technical View
         },
         { headers: { Authorisation: token } }

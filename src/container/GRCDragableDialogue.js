@@ -92,31 +92,16 @@ class GRCDragableDialogue extends Component {
         );
       }
     }
+
     this.props.riskTechGrcReport(
       this.props.token,
-      this.props.sapSystem,
-      this.props.client,
+      this.props.selectedData.SYSID,
+      this.props.selectedData.MANDT,
       this.props.level,
-      this.props.riskType,
-      this.props.riskLevel,
-      this.props.businessModule,
-      this.props.riskid,
-      this.props.userinput,
-      this.props.reportType
-    );
-
-    console.log(
-      this.props.token,
-      this.props.sapSystem,
-      this.props.client,
-      this.props.level,
-      this.props.riskType,
-      this.props.riskLevel,
-      this.props.businessModule,
-      this.props.riskId,
-      this.props.userinput,
-      this.props.reportType,
-      "============sending tech report"
+      this.props.selectedData.ZRISK_TYPE,
+      this.props.selectedData.ZRISK_LEVEL,
+      this.props.selectedData.ZAUDIT_ID,
+      this.props.selectedData.BNAME
     );
   }
 
@@ -203,10 +188,8 @@ const mapDispatchToProps = (dispatch) => {
       level,
       riskType,
       riskLevel,
-      businessModule,
       riskId,
-      userinput,
-      reportView
+      userinput
     ) =>
       dispatch(
         action.riskTechGrcReport(
@@ -216,10 +199,8 @@ const mapDispatchToProps = (dispatch) => {
           level,
           riskType,
           riskLevel,
-          businessModule,
           riskId,
-          userinput,
-          reportView
+          userinput
         )
       ),
   };

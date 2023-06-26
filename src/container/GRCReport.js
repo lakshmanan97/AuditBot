@@ -13,7 +13,7 @@ class GRCReport extends Component {
   state = {
     dialogue: false,
     type: "",
-    ztype: "",
+    selectedData: {},
   };
   componentDidMount() {
     const { pathname } = this.props.location;
@@ -24,13 +24,12 @@ class GRCReport extends Component {
   // openDialogue = (type, ztype) => {
 
   // }
-  openDialogue = (type, ztype) => {
-    this.setState({ dialogue: true, type: type, ztype: ztype });
+  openDialogue = (type, data) => {
+    this.setState({ dialogue: true, type: type, selectedData: data });
   };
   closeDialogue = () => {
-    console.log("ener for cloase dialoguhe");
     this.props.clearTableRiskTechReport();
-    this.setState({ dialogue: false, type: "", ztype: "" });
+    this.setState({ dialogue: false, type: "", selectedData: {} });
   };
 
   render() {
@@ -74,7 +73,7 @@ class GRCReport extends Component {
             <GRCDragableDialogue
               dialogueState={this.state.dialogue}
               type={this.state.type}
-              ztype={this.state.ztype}
+              selectedData={this.state.selectedData}
               closeDialogue={this.closeDialogue}
             />
           ) : null}
