@@ -11,7 +11,6 @@ export const initFilter = (token) => {
         dispatch(initiateFilter(response.data));
       })
       .catch((error) => {
-        console.log(error.response.status);
         if (error.response.status == "401") {
           action.logout();
           window.location.reload();
@@ -27,6 +26,18 @@ export const changeFilter = (data, value) => {
       case 1:
         dispatch({
           type: actionType.CHANGE_SAPSYSTEM_FILTER,
+          value: value,
+        });
+        break;
+      case 14:
+        dispatch({
+          type: actionType.CHANGE_ACCOUNT_FILTER,
+          value: value,
+        });
+        break;
+      case 26:
+        dispatch({
+          type: actionType.CHANGE_LEVEL,
           value: value,
         });
         break;
@@ -115,6 +126,14 @@ export const initiateFilter = (data) => {
         temp.sapSystem.selectedValue = p.value[0].ZID;
         temp.sapSystem.filtered = p.value[0].ZID;
         break;
+      case 14:
+        temp.account = p;
+        break;
+      case 26:
+        temp.level = p;
+        temp.level.selectedValue = p.value[0].ZID;
+        temp.level.filtered = p.value[0].ZID;
+        break;
       case 2:
         temp.client = p;
         temp.client.selectedValue = p.value[0].ZID;
@@ -162,6 +181,7 @@ export const initiateFilter = (data) => {
     }
   });
 
+  console.log(temp, "==========================");
   return {
     type: actionType.INITFILTER,
     data: temp,

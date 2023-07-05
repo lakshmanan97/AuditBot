@@ -12,7 +12,7 @@ const initialState = {
     value: [],
     selectedValue: [],
   },
-  level: { User: 1, Role: 2, selectedValue: 1 },
+  level: { name: "Report Level", id: 26, value: [], selectedValue: [] },
   breakDown: {
     values: { "Risk Level": 2, "Risk Type": 1, "Business Modules": 3 },
     selectedValue: [1],
@@ -21,6 +21,7 @@ const initialState = {
   drillDown: { name: "Drill Down", id: 9, value: [] },
   reportType: { name: "Report Type", id: 7, value: [] },
   riskid: { name: "Risk Id", id: 8, value: [], selectedValue: [] },
+  account: { name: "Account", id: 14, value: [], selectedValue: [] },
   reportView: { name: "Report View", id: 10, value: [] },
   userinput: "",
   result: null,
@@ -43,6 +44,11 @@ const filterreducer = (state = initialState, action) => {
       return {
         ...state,
         sapSystem: { ...state.sapSystem, selectedValue: action.value },
+      };
+    case actionType.CHANGE_ACCOUNT_FILTER:
+      return {
+        ...state,
+        account: { ...state.account, selectedValue: action.value },
       };
     case actionType.CHANGE_RISKTYPE_FILTER:
       return {
@@ -95,7 +101,7 @@ const filterreducer = (state = initialState, action) => {
     case actionType.CHANGE_LEVEL:
       return {
         ...state,
-        level: { ...state.level, selectedValue: action.level },
+        level: { ...state.level, selectedValue: action.value },
       };
     case actionType.CHANGE_BREAKDOWN:
       return {
@@ -139,6 +145,7 @@ const filterreducer = (state = initialState, action) => {
         },
         riskid: { ...state.riskid, filtered: state.riskid.selectedValue },
         userinput: { ...state.userinput, filtered: state.userinput },
+        account: { ...state.account, filtered: state.account.selectedValue },
       };
     case actionType.UPDATE_DATAFORMAT:
       return { ...state, dataformat: action.data };
@@ -151,8 +158,9 @@ const filterreducer = (state = initialState, action) => {
         riskLevel: { ...state.riskLevel, selectedValue: [] },
         risk: { ...state.risk, selectedValue: [] },
         userinput: "",
-        level: { ...state.level, selectedValue: 1 },
+        level: { ...state.level, selectedValue: [] },
         grcreport: {},
+        account: { ...state.account, selectedValue: [] },
       };
     case actionType.UPDATE_RISKREPORT:
       return { ...state, tableReport: action.tableReport };
