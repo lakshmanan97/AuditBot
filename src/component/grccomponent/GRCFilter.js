@@ -51,7 +51,9 @@ class GRCFilter extends Component {
   changeAccount = (value) => {
     this.props.onChangeFilter(this.props.account, value);
   };
-
+  changeUserGroup = (value) => {
+    this.props.onChangeFilter(this.props.userGroup, value);
+  };
   changeRiskType = (value) => {
     this.props.onChangeFilter(this.props.riskType, value);
   };
@@ -168,7 +170,12 @@ class GRCFilter extends Component {
             return { key: param.ZID, value: param.ZID };
           })
         : [];
-
+    let userGroup =
+      Object.keys(this.props.userGroup).length != 0
+        ? this.props.userGroup.value.map((param) => {
+            return { key: param.ZID, value: param.ZID };
+          })
+        : [];
     let reportType =
       Object.keys(this.props.reportType).length != 0
         ? this.props.reportType.value.map((param) => {
@@ -314,14 +321,27 @@ class GRCFilter extends Component {
             </Grid>
             <Grid
               item
-              md={1}
+              md={1/2}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
-              <FilterSingleSelectDropDown
+              <FilterMultiSelectDropDown
                 values={account}
                 preSelected={this.props.account.selectedValue}
                 changeEventCallBack={this.changeAccount}
                 label="Account"
+                width="100"
+              />
+            </Grid>
+            <Grid
+              item
+              md={1}
+              style={{ marginTop: "auto", marginBottom: "auto" }}
+            >
+              <FilterMultiSelectDropDown
+                values={userGroup}
+                preSelected={this.props.userGroup.selectedValue}
+                changeEventCallBack={this.changeUserGroup}
+                label="User Group"
                 width="100"
               />
             </Grid>
@@ -330,10 +350,7 @@ class GRCFilter extends Component {
                             <FilterSingleSelectDropDown values={reportType} preSelected={this.props.reportType.selectedValue} changeEventCallBack={this.changeReportType} label="Report Type" width='100' />
                         </Grid>
         :null*/}
-            <Grid
-              item
-              style={{ marginTop: "auto", marginBottom: "auto" }}
-            ></Grid>
+            
 
             {/*<Grid item md={1} style={{ marginTop:'auto', marginBottom:'auto'}}>
                             <FilterSingleSelectDropDown values={drillDown} preSelected={this.props.drillDown.selectedValue} changeEventCallBack={this.changeDrillDown} label={this.props.type == 'Report'?"Report Type":"Drill Down"} width='100' />
@@ -385,10 +402,10 @@ class GRCFilter extends Component {
                 color="primary"
                 style={{
                   fontFamily: "Helvetica",
-                  padding: 4,
+                  padding: 2,
                   backgroundColor: "#009ED7",
                   textTransform: "none",
-                  minWidth: "80px",
+                  minWidth: "70px",
                 }}
                 onClick={() => this.onfilterSumbit()}
               >
@@ -438,6 +455,7 @@ const mapStateToProps = (state) => {
     riskLevel: state.filter.riskLevel,
     businessModule: state.filter.businessModule,
     account: state.filter.account,
+    userGroup: state.filter.userGroup,
     mitigation: state.filter.mitigation,
     level: state.filter.level,
     reportType: state.filter.reportType,

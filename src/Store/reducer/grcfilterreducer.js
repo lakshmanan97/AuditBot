@@ -22,6 +22,7 @@ const initialState = {
   reportType: { name: "Report Type", id: 7, value: [] },
   riskid: { name: "Risk Id", id: 8, value: [], selectedValue: [] },
   account: { name: "Account", id: 14, value: [], selectedValue: [] },
+  userGroup: { name: "User Group", id: 13, value: [], selectedValue: [] },
   reportView: { name: "Report View", id: 10, value: [] },
   userinput: "",
   result: null,
@@ -108,6 +109,11 @@ const filterreducer = (state = initialState, action) => {
         ...state,
         breakDown: { ...state.breakDown, selectedValue: action.data },
       };
+    case actionType.CHANGE_USERGROUP_FILTER:
+      return {
+        ...state,
+        userGroup: { ...state.userGroup, selectedValue: action.value },
+      };
     case actionType.UPDATE_RESULT:
       return {
         ...state,
@@ -146,6 +152,7 @@ const filterreducer = (state = initialState, action) => {
         riskid: { ...state.riskid, filtered: state.riskid.selectedValue },
         userinput: { ...state.userinput, filtered: state.userinput },
         account: { ...state.account, filtered: state.account.selectedValue },
+        userGroup: { ...state.userGroup, filtered: state.userGroup.selectedValue },
       };
     case actionType.UPDATE_DATAFORMAT:
       return { ...state, dataformat: action.data };
@@ -161,6 +168,7 @@ const filterreducer = (state = initialState, action) => {
         level: { ...state.level, selectedValue: [] },
         grcreport: {},
         account: { ...state.account, selectedValue: [] },
+        userGroup: { ...state.userGroup, selectedValue: [] },
       };
     case actionType.UPDATE_RISKREPORT:
       return { ...state, tableReport: action.tableReport };

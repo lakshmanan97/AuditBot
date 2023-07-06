@@ -71,6 +71,9 @@ export const changeFilter = (data, value) => {
       case 10:
         dispatch({ type: actionType.CHANGE_REPORTVIEW_TYPE, value: value });
         break;
+      case 13:
+        dispatch({ type: actionType.CHANGE_USERGROUP_FILTER, value: value });
+        break;
       default:
         console.log("case doesn't match");
     }
@@ -127,6 +130,8 @@ export const initiateFilter = (data) => {
         temp.sapSystem.filtered = p.value[0].ZID;
         break;
       case 14:
+        p.selectedValue = [];
+        p.filtered = [];
         temp.account = p;
         break;
       case 26:
@@ -176,12 +181,15 @@ export const initiateFilter = (data) => {
       case 51:
         temp.colors = p.value.map((color) => color.ZDESC);
         break;
+      case 13:
+        p.selectedValue = [];
+        p.filtered = [];
+        temp.userGroup = p;
+        break;
       default:
         console.log("case doesn't match");
     }
   });
-
-  console.log(temp, "==========================");
   return {
     type: actionType.INITFILTER,
     data: temp,
