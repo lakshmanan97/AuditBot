@@ -207,7 +207,9 @@ export const submitFilter = (
   breakDown,
   riskId,
   reportType,
-  mitigation
+  mitigation,
+  account,
+  userGroup
 ) => {
   return (dispatch) => {
     dispatch({ type: actionType.CHANGE_LOADER_STATUS, data: true });
@@ -225,6 +227,8 @@ export const submitFilter = (
           riskId: riskId,
           reportType: reportType,
           mitigation: mitigation,
+          account: account,
+          userGroup: userGroup
         },
         { headers: { Authorisation: token } }
       )
@@ -316,7 +320,9 @@ export const riskGrcReport = (
   mitigation,
   drillDown,
   riskId,
-  userinput
+  userinput,
+  account,
+  userGroup
 ) => {
   return (dispatch) => {
     dispatch({ type: actionType.CHANGE_LOADER_STATUS, data: true });
@@ -334,6 +340,8 @@ export const riskGrcReport = (
           drillDown: drillDown,
           riskId: riskId,
           userInput: userinput,
+          account: account,
+          userGroup: userGroup
         },
         { headers: { Authorisation: token } }
       )
