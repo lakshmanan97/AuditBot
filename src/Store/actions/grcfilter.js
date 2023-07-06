@@ -390,7 +390,7 @@ export const riskGrcCompanyReport = (
           riskId: riskId,
           userInput: userinput,
           account: account,
-          userGroup: userGroup
+          userGroup: userGroup,
         },
         { headers: { Authorisation: token } }
       )
@@ -513,9 +513,7 @@ export const riskTechGrcReport = (
   level,
   riskType,
   riskLevel,
-  businessModule,
   riskId,
-  reportView,
   userinput,
   account,
   userGroup
@@ -536,7 +534,7 @@ export const riskTechGrcReport = (
           userInput: userinput,
           reportView: 2, // Technical View
           account: account,
-          userGroup: userGroup
+          userGroup: userGroup,
         },
         { headers: { Authorisation: token } }
       )
