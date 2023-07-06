@@ -228,7 +228,7 @@ export const submitFilter = (
           reportType: reportType,
           mitigation: mitigation,
           account: account,
-          userGroup: userGroup
+          userGroup: userGroup,
         },
         { headers: { Authorisation: token } }
       )
@@ -341,7 +341,7 @@ export const riskGrcReport = (
           riskId: riskId,
           userInput: userinput,
           account: account,
-          userGroup: userGroup
+          userGroup: userGroup,
         },
         { headers: { Authorisation: token } }
       )
