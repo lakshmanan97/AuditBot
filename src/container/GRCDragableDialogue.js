@@ -103,7 +103,9 @@ class GRCDragableDialogue extends Component {
       this.props.selectedData.ZAUDIT_ID,
       this.props.level.selectedValue === 1
         ? this.props.selectedData.BNAME
-        : this.props.selectedData.AGR_NAME
+        : this.props.selectedData.AGR_NAME,
+      this.props.account.selectedValue,
+      this.props.userGroup.selectedValue
     );
   }
 
@@ -138,6 +140,8 @@ const mapStateToProps = (state) => {
     businessModule: state.filter.businessModule,
     mitigation: state.filter.mitigation,
     level: state.filter.level,
+    account: state.filter.account,
+    userGroup: state.filter.userGroup,
     reportType: state.filter.reportType,
     riskid: state.filter.riskid,
     drillDown: state.filter.drillDown,
@@ -191,7 +195,9 @@ const mapDispatchToProps = (dispatch) => {
       riskType,
       riskLevel,
       riskId,
-      userinput
+      userinput,
+      account,
+      userGroup
     ) =>
       dispatch(
         action.riskTechGrcReport(
@@ -202,7 +208,9 @@ const mapDispatchToProps = (dispatch) => {
           riskType,
           riskLevel,
           riskId,
-          userinput
+          userinput,
+          account,
+          userGroup
         )
       ),
   };

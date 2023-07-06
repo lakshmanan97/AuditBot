@@ -228,7 +228,7 @@ export const submitFilter = (
           reportType: reportType,
           mitigation: mitigation,
           account: account,
-          userGroup: userGroup
+          userGroup: userGroup,
         },
         { headers: { Authorisation: token } }
       )
@@ -341,7 +341,7 @@ export const riskGrcReport = (
           riskId: riskId,
           userInput: userinput,
           account: account,
-          userGroup: userGroup
+          userGroup: userGroup,
         },
         { headers: { Authorisation: token } }
       )
@@ -495,7 +495,9 @@ export const riskTechGrcReport = (
   riskType,
   riskLevel,
   riskId,
-  userinput
+  userinput,
+  account,
+  userGroup
 ) => {
   return (dispatch) => {
     dispatch({ type: actionType.CHANGE_LOADER_STATUS, data: true });
@@ -512,6 +514,8 @@ export const riskTechGrcReport = (
           businessModule: [],
           userInput: userinput,
           reportView: 2, // Technical View
+          account: account,
+          userGroup: userGroup,
         },
         { headers: { Authorisation: token } }
       )
