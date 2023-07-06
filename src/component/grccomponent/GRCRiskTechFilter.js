@@ -101,7 +101,9 @@ class GRCFilter extends Component {
       this.props.businessModule.selectedValue,
       this.props.riskid.selectedValue,
       this.props.reportView.selectedValue,
-      this.props.userinput
+      this.props.userinput,
+      this.props.account.selectedValue,
+      this.props.userGroup.selectedValue
     );
   };
   render() {
@@ -213,7 +215,7 @@ class GRCFilter extends Component {
           >
             <Grid
               item
-              md={1}
+              md={1/2}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterSingleSelectDropDown
@@ -226,7 +228,7 @@ class GRCFilter extends Component {
             </Grid>
             <Grid
               item
-              md={1}
+              md={1/2}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterSingleSelectDropDown
@@ -239,7 +241,7 @@ class GRCFilter extends Component {
             </Grid>
             <Grid
               item
-              md={1}
+              md={1/2}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterSingleSelectDropDown
@@ -252,7 +254,7 @@ class GRCFilter extends Component {
             </Grid>
             <Grid
               item
-              md={1}
+              md={1/2}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterMultiSelectDropDown
@@ -305,7 +307,7 @@ class GRCFilter extends Component {
 
             <Grid
               item
-              md={2}
+              md={1}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterSingleSelectDropDown
@@ -501,7 +503,9 @@ const mapDispatchToProps = (dispatch) => {
       businessModule,
       riskId,
       reportView,
-      userinput
+      userinput,
+      account,
+      userGroup
     ) =>
       dispatch(
         action.riskTechGrcReport(
@@ -514,7 +518,9 @@ const mapDispatchToProps = (dispatch) => {
           businessModule,
           riskId,
           reportView,
-          userinput
+          userinput,
+          account,
+          userGroup
         )
       ),
   };

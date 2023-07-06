@@ -107,7 +107,9 @@ class GRCCompanyFilter extends Component {
         this.props.mitigation.selectedValue,
         this.props.drillDown.selectedValue,
         this.props.riskid.selectedValue,
-        this.props.userinput
+        this.props.userinput,
+        this.props.account.selectedValue,
+        this.props.userGroup.selectedValue,
       );
     }
   };
@@ -518,7 +520,9 @@ const mapDispatchToProps = (dispatch) => {
       mitigation,
       drillDown,
       riskId,
-      userinput
+      userinput,
+      account,
+      userGroup
     ) =>
       dispatch(
         action.riskGrcCompanyReport(
@@ -532,7 +536,9 @@ const mapDispatchToProps = (dispatch) => {
           mitigation,
           drillDown,
           riskId,
-          userinput
+          userinput,
+          account,
+          userGroup
         )
       ),
   };

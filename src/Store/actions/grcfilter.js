@@ -369,7 +369,9 @@ export const riskGrcCompanyReport = (
   mitigation,
   drillDown,
   riskId,
-  userinput
+  userinput,
+  account,
+  userGroup
 ) => {
   return (dispatch) => {
     dispatch({ type: actionType.CHANGE_LOADER_STATUS, data: true });
@@ -387,6 +389,8 @@ export const riskGrcCompanyReport = (
           drillDown: drillDown,
           riskId: riskId,
           userInput: userinput,
+          account: account,
+          userGroup: userGroup
         },
         { headers: { Authorisation: token } }
       )
@@ -473,6 +477,21 @@ export const initiateRiskTechFilter = (data) => {
         p.selectedValue = p.value[0].ZID;
         temp.reportView = p;
         break;
+      case 26:
+        temp.level = p;
+        temp.level.selectedValue = p.value[0].ZID;
+        temp.level.filtered = p.value[0].ZID;
+        break;
+      case 14:
+        p.selectedValue = [];
+        p.filtered = [];
+        temp.account = p;
+        break;
+      case 13:
+        p.selectedValue = [];
+        p.filtered = [];
+        temp.userGroup = p;
+        break;
       case 51:
         temp.colors = p.value.map((color) => color.ZDESC);
         break;
@@ -494,8 +513,12 @@ export const riskTechGrcReport = (
   level,
   riskType,
   riskLevel,
+  businessModule,
   riskId,
-  userinput
+  reportView,
+  userinput,
+  account,
+  userGroup
 ) => {
   return (dispatch) => {
     dispatch({ type: actionType.CHANGE_LOADER_STATUS, data: true });
@@ -506,12 +529,14 @@ export const riskTechGrcReport = (
           sapSystem: sapSystem,
           client: client,
           level: level.selectedValue,
-          riskType: [riskType],
-          riskLevel: [riskLevel],
-          riskId: [riskId],
+          riskType: riskType,
+          riskLevel: riskLevel,
+          riskId: riskId,
           businessModule: [],
           userInput: userinput,
           reportView: 2, // Technical View
+          account: account,
+          userGroup: userGroup
         },
         { headers: { Authorisation: token } }
       )
