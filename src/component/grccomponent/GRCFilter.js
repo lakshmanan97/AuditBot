@@ -93,7 +93,9 @@ class GRCFilter extends Component {
         this.props.breakDown.selectedValue,
         this.props.riskid.selectedValue,
         this.props.reportType.selectedValue,
-        this.props.mitigation.selectedValue
+        this.props.mitigation.selectedValue,
+        this.props.account.selectedValue,
+        this.props.userGroup.selectedValue
       );
     } else {
       this.props.submitGRCFilter(
@@ -107,7 +109,9 @@ class GRCFilter extends Component {
         this.props.mitigation.selectedValue,
         this.props.drillDown.selectedValue,
         this.props.riskid.selectedValue,
-        this.props.userinput
+        this.props.userinput,
+        this.props.account.selectedValue,
+        this.props.userGroup.selectedValue
       );
     }
   };
@@ -485,7 +489,9 @@ const mapDispatchToProps = (dispatch) => {
       breakDown,
       riskId,
       reportType,
-      mitigation
+      mitigation,
+      account,
+      userGroup
     ) =>
       dispatch(
         action.submitFilter(
@@ -499,7 +505,9 @@ const mapDispatchToProps = (dispatch) => {
           breakDown,
           riskId,
           reportType,
-          mitigation
+          mitigation,
+          account,
+          userGroup
         )
       ),
     submitGRCFilter: (
@@ -513,7 +521,9 @@ const mapDispatchToProps = (dispatch) => {
       mitigation,
       drillDown,
       riskId,
-      userinput
+      userinput,
+      account,
+      userGroup
     ) =>
       dispatch(
         action.riskGrcReport(
@@ -527,7 +537,9 @@ const mapDispatchToProps = (dispatch) => {
           mitigation,
           drillDown,
           riskId,
-          userinput
+          userinput,
+          account,
+          userGroup
         )
       ),
   };
