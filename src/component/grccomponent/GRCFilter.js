@@ -204,7 +204,7 @@ class GRCFilter extends Component {
           id="idFilterCard"
           style={{
             minHeight: "7vh",
-            padding: 0,
+            padding: 10,
             marginTop: "auto",
             marginBottom: "auto",
           }}
@@ -228,7 +228,7 @@ class GRCFilter extends Component {
                 values={level}
                 preSelected={this.props.level.selectedValue}
                 changeEventCallBack={this.changeLevel}
-                label="Level"
+                label={this.props.level.name}
                 width="100"
               />
             </Grid>
@@ -241,7 +241,7 @@ class GRCFilter extends Component {
                 values={sapSystem}
                 preSelected={this.props.sapSystem.selectedValue}
                 changeEventCallBack={this.changeSystem}
-                label="System"
+                label={this.props.sapSystem.name}
                 width="100"
               />
             </Grid>
@@ -254,7 +254,7 @@ class GRCFilter extends Component {
                 values={sapClient}
                 preSelected={this.props.client.selectedValue}
                 changeEventCallBack={this.changeClient}
-                label="Client"
+                label={this.props.client.name}
                 width="100"
               />
             </Grid>
@@ -267,7 +267,7 @@ class GRCFilter extends Component {
                 values={riskType}
                 preSelected={this.props.riskType.selectedValue}
                 changeEventCallBack={this.changeRiskType}
-                label="Risk Type"
+                label={this.props.riskType.name}
                 width="100"
               />
             </Grid>
@@ -280,20 +280,20 @@ class GRCFilter extends Component {
                 values={riskLevel}
                 preSelected={this.props.riskLevel.selectedValue}
                 changeEventCallBack={this.changeRiskLevel}
-                label="Risk Level"
+                label={this.props.riskLevel.name}
                 width="100"
               />
             </Grid>
             <Grid
               item
-              md={1}
+              md={2}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterMultiSelectDropDown
                 values={businessModule}
                 preSelected={this.props.businessModule.selectedValue}
                 changeEventCallBack={this.changeBusinessModule}
-                label="Bus Module"
+                label={this.props.businessModule.name}
                 width="100"
               />
             </Grid>
@@ -306,7 +306,7 @@ class GRCFilter extends Component {
                 values={riskid}
                 preSelected={this.props.riskid.selectedValue}
                 changeEventCallBack={this.changeRiskId}
-                label="Risk Id"
+                label={this.props.riskid.name}
                 width="100"
               />
             </Grid>
@@ -319,20 +319,20 @@ class GRCFilter extends Component {
                 values={mitigation}
                 preSelected={this.props.mitigation.selectedValue}
                 changeEventCallBack={this.changeMitigation}
-                label="Mitigation"
+                label={this.props.mitigation.name}
                 width="100"
               />
             </Grid>
             <Grid
               item
-              md={1/2}
+              md={1 / 2}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterMultiSelectDropDown
                 values={account}
                 preSelected={this.props.account.selectedValue}
                 changeEventCallBack={this.changeAccount}
-                label="Account"
+                label={this.props.account.name}
                 width="100"
               />
             </Grid>
@@ -345,7 +345,7 @@ class GRCFilter extends Component {
                 values={userGroup}
                 preSelected={this.props.userGroup.selectedValue}
                 changeEventCallBack={this.changeUserGroup}
-                label="User Group"
+                label={this.props.userGroup.name}
                 width="100"
               />
             </Grid>
@@ -354,7 +354,6 @@ class GRCFilter extends Component {
                             <FilterSingleSelectDropDown values={reportType} preSelected={this.props.reportType.selectedValue} changeEventCallBack={this.changeReportType} label="Report Type" width='100' />
                         </Grid>
         :null*/}
-            
 
             {/*<Grid item md={1} style={{ marginTop:'auto', marginBottom:'auto'}}>
                             <FilterSingleSelectDropDown values={drillDown} preSelected={this.props.drillDown.selectedValue} changeEventCallBack={this.changeDrillDown} label={this.props.type == 'Report'?"Report Type":"Drill Down"} width='100' />

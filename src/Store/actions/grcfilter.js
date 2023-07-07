@@ -499,7 +499,7 @@ export const initiateRiskTechFilter = (data) => {
         console.log("case doesn't match");
     }
   });
-
+  console.log(temp, "===============tempData");
   return {
     type: actionType.INITFILTER,
     data: temp,
