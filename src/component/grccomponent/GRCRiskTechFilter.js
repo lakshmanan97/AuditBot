@@ -95,7 +95,7 @@ class GRCFilter extends Component {
       this.props.token,
       this.props.sapSystem.selectedValue,
       this.props.client.selectedValue,
-      this.props.level.selectedValue,
+      this.props.level,
       this.props.riskType.selectedValue,
       this.props.riskLevel.selectedValue,
       this.props.riskid.selectedValue,
