@@ -278,7 +278,7 @@ class GRCFilter extends Component {
             </Grid>
             <Grid
               item
-              md={2}
+              md={1}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterMultiSelectDropDown
@@ -291,7 +291,7 @@ class GRCFilter extends Component {
             </Grid>
             <Grid
               item
-              md={this.props.type == "Dashbord" ? 2 : 2}
+              md={1}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterMultiSelectDropDown
@@ -318,7 +318,7 @@ class GRCFilter extends Component {
             </Grid>
             <Grid
               item
-              md={1 / 2}
+              md={1}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               <FilterMultiSelectDropDown
