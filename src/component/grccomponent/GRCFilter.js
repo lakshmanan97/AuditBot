@@ -393,7 +393,7 @@ class GRCFilter extends Component {
             ) : null}
             <Grid
               item
-              md={this.props.type == "Dashbord" ? 1 : 1}
+              md={this.props.type == "Dashbord" ? 2 : 1}
               style={{ marginTop: "auto", marginBottom: "auto" }}
             >
               {/* <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => this.onfilterSumbit()}>
